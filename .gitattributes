@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Force Java files to use LF line endings
+*.java text eol=lf
