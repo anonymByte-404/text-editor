@@ -29,24 +29,24 @@
 
 <h3>Clone the repository</h3>
 
-<pre><code>git clone https://github.com/your-username/your-repository-name.git</code></pre>
+<pre><code>git clone https://github.com/anonymByte-404/text-editor.git</code></pre>
 
 <h3>Compile and Run</h3>
 
 1. Navigate to the project directory:
-  ```bash
-  cd your-repository-name
-  ```
+    ```bash
+    cd your-repository-name
+    ```
 
 2. Compile the Java files:
-  ```bash
-  javac -d bin src/*.java
-  ```
+    ```bash
+    javac -d bin src/*.java
+    ```
 
 3. Run the application:
-  ```bash
-  java -cp bin TextEditor
-  ```
+    ```bash
+    java -cp bin TextEditor
+    ```
 
 <h2>Usage</h2>
 
