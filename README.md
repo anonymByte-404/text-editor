@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="AGPL-3.0 License">
   <img src="https://img.shields.io/badge/Java-17.0.13-orange.svg" alt="Express TypeScript Definitions">
-  <img src="https://img.shields.io/badge/text--editor-1.0.0-yellowgreen.svg" alt="Pygame Version">
+  <img src="https://img.shields.io/badge/text--editor-1.1.0-yellowgreen.svg" alt="Pygame Version">
 </p>
 
 <p align="center"><i>A simple text editor built in Java that allows users to open, edit, and save text files. It supports basic file operations such as opening and saving files through a graphical user interface (GUI).</i></p>
