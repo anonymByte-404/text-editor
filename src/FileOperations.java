@@ -40,7 +40,7 @@ public class FileOperations {
       try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
         textArea.read(reader, null);
       } catch (IOException ex) {
-        JOptionPane.showMessageDialog(frame, "Error opening file!", "Error", JOptionPane.ERROR_MESSAGE);
+        showError("Error opening file!", ex);
       }
     }
   }
@@ -49,16 +49,12 @@ public class FileOperations {
     int returnValue = fileChooser.showSaveDialog(frame);
     if (returnValue == JFileChooser.APPROVE_OPTION) {
       File file = fileChooser.getSelectedFile();
-
-      if (!file.getName().contains(".")) {
-        String extension = ".txt";
-        file = new File(file.getAbsolutePath() + extension);
-      }
+      file = ensureFileExtension(file);
 
       try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
         textArea.write(writer);
       } catch (IOException ex) {
-        JOptionPane.showMessageDialog(frame, "Error saving file!", "Error", JOptionPane.ERROR_MESSAGE);
+        showError("Error saving file!", ex);
       }
     }
   }
@@ -67,31 +63,35 @@ public class FileOperations {
     int returnValue = fileChooser.showSaveDialog(frame);
     if (returnValue == JFileChooser.APPROVE_OPTION) {
       File file = fileChooser.getSelectedFile();
+      file = ensureFileExtension(file);
 
-      if (!file.getName().contains(".")) {
-        int option = JOptionPane.showConfirmDialog(frame,
-          "The file doesn't have an extension. Do you want to add a '.txt' extension?",
-          "No Extension Warning", JOptionPane.YES_NO_OPTION);
-
-        if (option == JOptionPane.YES_OPTION) {
-          file = new File(file.getAbsolutePath() + ".txt");
-        }
-      }
-
-      String newFileName = JOptionPane.showInputDialog(frame, "Enter a new name for the file:",
-        file.getName());
+      String newFileName = JOptionPane.showInputDialog(frame, "Enter a new name for the file:", file.getName());
       if (newFileName != null && !newFileName.trim().isEmpty()) {
-        if (!newFileName.contains(".")) {
-          newFileName += ".txt";
-        }
         file = new File(file.getParent(), newFileName);
       }
 
       try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
         textArea.write(writer);
       } catch (IOException ex) {
-        JOptionPane.showMessageDialog(frame, "Error saving new file!", "Error", JOptionPane.ERROR_MESSAGE);
+        showError("Error saving new file!", ex);
       }
     }
+  }
+
+  private File ensureFileExtension(File file) {
+    if (!file.getName().contains(".")) {
+      int option = JOptionPane.showConfirmDialog(frame,
+        "The file doesn't have an extension. Do you want to add a '.txt' extension?",
+        "No Extension Warning", JOptionPane.YES_NO_OPTION);
+
+      if (option == JOptionPane.YES_OPTION) {
+        file = new File(file.getAbsolutePath() + ".txt");
+      }
+    }
+    return file;
+  }
+
+  private void showError(String message, Exception ex) {
+    JOptionPane.showMessageDialog(frame, message + "\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
   }
 }
