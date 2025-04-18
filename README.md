@@ -3,21 +3,28 @@
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="AGPL-3.0 License">
   <img src="https://img.shields.io/badge/Java-17.0.13-orange.svg" alt="Express TypeScript Definitions">
-  <img src="https://img.shields.io/badge/text--editor-1.1.0-yellowgreen.svg" alt="Pygame Version">
+  <img src="https://img.shields.io/badge/text--editor-1.1.1-yellowgreen.svg" alt="Text Editor Version">
 </p>
 
 <p align="center"><i>A simple text editor built in Java that allows users to open, edit, and save text files. It supports basic file operations such as opening and saving files through a graphical user interface (GUI).</i></p>
 
----
+<hr>
+
 <h2 align="center">Features</h2>
 
 <ul>
-  <li>Open and save text files</li>
-  <li>Simple and intuitive user interface</li>
-  <li>Lightweight and fast</li>
+  <li>
+    <p>Open and save text files</p>
+  </li>
+  <li>
+    <p>Simple and intuitive user interface</p>
+  </li>
+  <li>
+    <p>Lightweight and fast</p>
+  </li>
 </ul>
 
----
+<hr>
 
 <h2>Requirements</h2>
 
@@ -35,7 +42,7 @@
 
 1. Navigate to the project directory:
     ```bash
-    cd your-repository-name
+    cd text-editor
     ```
 
 2. Compile the Java files:
@@ -50,9 +57,17 @@
 
 <h2>Usage</h2>
 
-1. Open the application by running the `TextEditor` class.
-2. Use the **File** menu to open an existing text file or save a new one.
-3. Edit your text in the editor and save your changes.
+<ol>
+  <li>
+    <p>Open the application by running the <code>TextEditor</code> class.</p>
+  </li>
+  <li>
+    <p>Use the <strong>File</strong> menu to open an existing text file or save a new one.</p>
+  </li>
+  <li>
+    <p>Edit your text in the editor and save your changes.</p>
+  </li>
+</ol>
 
 <h2 align="center">License</h2>
 
