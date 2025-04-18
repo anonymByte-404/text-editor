@@ -1,28 +1,37 @@
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class TextEditor {
   private final JFrame frame;
   private final JTextArea textArea;
-  private final FileOperations fileOps;
-  private final EditActions editActions;
-  
+
   public TextEditor() {
-    frame = new JFrame("Java Text Editor");
+    frame = new JFrame("Text Editor");
     textArea = new JTextArea();
 
-    fileOps = new FileOperations(textArea, frame);
-    editActions = new EditActions(textArea);
+    setupMenuBar();
+    setupTextArea();
+    setupFrame();
+  }
 
+  private void setupMenuBar() {
     JMenuBar menuBar = new JMenuBar();
-    menuBar.add(fileOps.getFileMenu());
-    menuBar.add(editActions.getEditMenu());
-
+    menuBar.add(new FileOperations(textArea, frame).getFileMenu());
+    menuBar.add(new EditActions(textArea).getEditMenu());
+    menuBar.add(new ThemeManager(textArea, frame).getThemeMenu());
     frame.setJMenuBar(menuBar);
-    frame.add(new JScrollPane(textArea), BorderLayout.CENTER);
+  }
 
-    frame.setSize(600, 400);
+  private void setupTextArea() {
+    textArea.setLineWrap(true);
+    textArea.setWrapStyleWord(true);
+    frame.add(new JScrollPane(textArea), BorderLayout.CENTER);
+  }
+
+  private void setupFrame() {
+    frame.setSize(800, 600);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLocationRelativeTo(null);
     frame.setVisible(true);
   }
 
